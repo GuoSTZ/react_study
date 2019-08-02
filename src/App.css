@@ -1,5 +1,7 @@
+/* @import '../node_modules/_antd@3.20.1@antd/dist/antd.css'; */
 .App {
   text-align: center;
+  padding-bottom: 300px
 }
 
 .App-logo {
