@@ -23,7 +23,6 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-	  "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,7 +41,6 @@
     ]
   },
   "devDependencies": {
-    "jest": "^24.7.1",
     "redux-devtools": "^3.5.0"
   }
 }
