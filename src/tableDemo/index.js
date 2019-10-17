@@ -1,11 +1,8 @@
 import React from 'react';
 import {Table, Switch} from 'antd';
 
-const state = {
-  parentState: false,
-  childState: false
-}
-
+//父子数据间，开关的联动，应该要与后端进行交互，当一条数据的开关变化时，首先检测该数据是否存在子级数据
+//如果没有，则不向后端发送请求，如果有，则向后端发送请求
 const columns = [
   {
     title: 'Name',
@@ -23,7 +20,7 @@ const columns = [
     dataIndex: 'status',
     key: 'status',
     width: '12%',
-    render: status => <Switch defaultChecked={!!status} onClick={(text,record,index)=>console.log(text,record,index)}/>
+    render: (text,record,index) => <Switch defaultChecked={!!text} disabled={!record.useable} size='small'/>
   },
   {
     title: 'Address',
@@ -39,6 +36,7 @@ const data = [
     name: 'John Brown sr.',
     age: 60,
     status: 1,
+    useable: false,
     address: 'New York No. 1 Lake Park',
     children: [
       {
@@ -46,6 +44,7 @@ const data = [
         name: 'John Brown',
         age: 42,
         status: 1,
+        useable: false,
         address: 'New York No. 2 Lake Park',
       },
       {
@@ -53,6 +52,7 @@ const data = [
         name: 'John Brown jr.',
         age: 30,
         status: 1,
+        useable: false,
         address: 'New York No. 3 Lake Park',
         children: [
           {
@@ -60,6 +60,7 @@ const data = [
             name: 'Jimmy Brown',
             age: 16,
             status: 1,
+            useable: false,
             address: 'New York No. 3 Lake Park',
           },
         ],
@@ -69,6 +70,7 @@ const data = [
         name: 'Jim Green sr.',
         age: 72,
         status: 0,
+        useable: false,
         address: 'London No. 1 Lake Park',
         children: [
           {
@@ -76,6 +78,7 @@ const data = [
             name: 'Jim Green',
             age: 42,
             status: 0,
+            useable: false,
             address: 'London No. 2 Lake Park',
             children: [
               {
@@ -83,6 +86,7 @@ const data = [
                 name: 'Jim Green jr.',
                 age: 25,
                 status: 1,
+                useable: false,
                 address: 'London No. 3 Lake Park',
               },
               {
@@ -90,6 +94,7 @@ const data = [
                 name: 'Jimmy Green sr.',
                 age: 18,
                 status: 1,
+                useable: false,
                 address: 'London No. 4 Lake Park',
               },
             ],
@@ -103,6 +108,7 @@ const data = [
     name: 'Joe Black',
     age: 32,
     status: 1,
+    useable: false,
     address: 'Sidney No. 1 Lake Park',
   },
 ];
