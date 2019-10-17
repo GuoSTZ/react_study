@@ -1,12 +1,12 @@
 import React from 'react';
-import TableDemo from './tableDemo';
+import InfiniteListExample from './loadList';
 import './App.css';
 
-export default class App extends React.Component{
-  render(){
-    return(
+export default class App extends React.Component {
+  render() {
+    return (
       <div>
-        <TableDemo />
+        <InfiniteListExample />
       </div>
     );
   }
