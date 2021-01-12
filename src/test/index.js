@@ -1,45 +1,66 @@
-import React, {Fragment} from 'react';
-import { Modal, Button, Icon } from 'antd';
+import React, { Fragment } from 'react';
+import { Form, Input, Button } from 'antd';
 
+const FormItem = Form.Item;
+class FormTest extends React.Component {
 
-export default class Test extends React.Component {
-  state = {
-    count: 10
+  mailCheck(str) {
+    var myReg = /^(\w|(\.\w+))+@([a-zA-Z0-9_-]+\.)+(com|org|cn|net)+$/;
+    return myReg.test(str)
   }
-  onClick(){
-    let p = null
-    // Modal.info({
-    //   title: '提示',
-    //   content: '密钥恢复成功，请重新登录！',
-    //   okText: `立即登录（${this.state.count}s）`
-    // })
-    p = setInterval(() => {
-      let count = this.state.count - 1
-      if(count === 0) {
-        clearInterval(p)
-      }
-      this.setState({count})
-    }, 1000)
+  mailRule = (rule, value, callback) => {
+    if (value && !this.mailCheck(value)) {
+      callback('error');
+    } else {
+      callback();
+    }
   }
-  render(){
+  mailChange(e) {
+    const form = this.props.form;
+    form.setFieldsValue(e.target.value, () => {
+      this.setState({
+        isMailError: form.getFieldError('mail') !== undefined
+      })
+    })
+  }
+  handleSubmit(e) {
+    this.props.form
+      .validateFields()
+      // .then(values => {
+      //   console.log(values, '**');
+      // })
+      // .then(values => {
+      //   setTimeout(() => {
+      //     console.log(values, '=====');
+      //   }, 2000)
+      // })
+      // .catch(err => {
+      //   console.log('err: ', err);
+      // });
+      
+  }
+  render() {
+    const { getFieldDecorator } = this.props.form;
     return (
-      <Fragment>
-        <Button onClick={this.onClick.bind(this)}>测试</Button>
-        <p>{this.state.count}</p>
-        <Modal
-          width={600}
-          visible={true}
-          closable={false}
-          bodyStyle={{ border: 'none' }}
-          title={<Fragment><Icon type='info-circle' style={{color: '#1890FF'}}/> 提示</Fragment>}
-          footer={[
-            <Button type='primary' onClick={this.onClick.bind(this)}>
-              {`立即登录（${this.state.count}s）`}
-            </Button>
-          ]}>
-          {'密钥恢复成功，请重新登录！'}
-        </Modal>
-      </Fragment>
+      <Form>
+        <FormItem label='邮箱地址' labelCol={{ span: 3 }} wrapperCol={{ span: 9 }}>
+          {getFieldDecorator('mail', {
+            rules: [
+              { required: true, message: '必填' }
+            ]
+          })(
+            <Input />
+          )}
+        </FormItem>
+        <FormItem wrapperCol={{ offset: 3 }}>
+          {getFieldDecorator('btn')(
+            <Button onClick={this.handleSubmit.bind(this)}>测试</Button>
+          )}
+        </FormItem>
+      </Form>
     )
   }
 }
+
+const FormDemo = Form.create({})(FormTest);
+export default FormDemo
