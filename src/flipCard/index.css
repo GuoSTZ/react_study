@@ -73,20 +73,20 @@
 
 @keyframes aboveCardDown {
   0% {
-      transform: perspective(160px) rotateX(0deg);
+    transform: perspective(160px) rotateX(0deg);
   }
 
   100% {
-      transform: perspective(160px) rotateX(-180deg);
+    transform: perspective(160px) rotateX(-180deg);
   }
 }
 
 @keyframes belowCardDown {
   0% {
-      transform: perspective(160px) rotateX(180deg);
+    transform: perspective(160px) rotateX(180deg);
   }
 
   100% {
-      transform: perspective(160px) rotateX(0deg);
+    transform: perspective(160px) rotateX(0deg);
   }
 }
