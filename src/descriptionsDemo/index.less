@@ -1,0 +1,18 @@
+@itemLabelWidth: 100px;
+.desc {
+  width: 800px;
+  .ant-descriptions-row{
+    .ant-descriptions-item{
+      padding-bottom: 24px;
+      .ant-descriptions-item-label {
+        width: @itemLabelWidth;
+        margin-right: 20px;
+        text-align: right;
+      }
+      .ant-descriptions-item-content {
+        width: calc( 100% - @itemLabelWidth - 20px );
+        vertical-align: top;
+      }
+    }
+  }
+}
