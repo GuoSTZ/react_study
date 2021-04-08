@@ -1,7 +1,7 @@
 import React from 'react';
-import NumCard from './numCard';
-import TimeCard from './timeCard';
-import CountdownCard from './countdownCard';
+import NumCard from './components/numCard';
+import TimeCard from './components/timeCard';
+import CountdownCard from './components/countdownCard';
 
 export default class flipCardDemo extends React.Component {
 

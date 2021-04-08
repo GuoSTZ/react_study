@@ -1,17 +1,17 @@
 import React from 'react';
 import {Button} from 'antd';
-import FilpCard from './flipCard';
+import FilpCard from '../flipCard';
 import moment from 'moment';
 
 export default class TimeCard extends React.Component {
   state = {
-    time: '000000'
+    time: '00:00:00'
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
       this.setState({
-        time: moment().format('HHmmss')
+        time: moment().format('HH:mm:ss')
       })
     }, 1000);
   }
@@ -22,7 +22,7 @@ export default class TimeCard extends React.Component {
 
   onTimeClick() {
     this.setState({
-      time: moment().format('HHmmss')
+      time: moment().format('HH:mm:ss')
     });
   }
 

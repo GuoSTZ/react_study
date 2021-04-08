@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'antd';
-import FilpCard from './flipCard';
+import FilpCard from '../flipCard';
 
 export default class NumCard extends React.Component {
   state = {
