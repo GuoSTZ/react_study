@@ -1,0 +1,16 @@
+.ant-list {
+  width: 330px;
+}
+.ant-list-header {
+  background-color: rgb(247, 248, 250);
+}
+.cccc {
+  margin: 0;
+  padding: 0;
+}
+.ant-list-item .ant-list-item-no-flex {
+  padding-left: 8px;
+}
+.aaaa .ant-spin-nested-loading {
+  display: none;
+}
