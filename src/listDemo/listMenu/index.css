@@ -1,16 +1,27 @@
-.ant-list {
-  width: 330px;
+.wrap {
+  min-width: 250px;
+}
+.ant-select, .ant-list {
+  width: 100%;
+}
+.ant-select + .ant-list {
+  height: 500px;
+  margin-top: 20px;
+  overflow-y: scroll;
 }
 .ant-list-header {
   background-color: rgb(247, 248, 250);
 }
-.cccc {
+.two {
   margin: 0;
   padding: 0;
 }
 .ant-list-item .ant-list-item-no-flex {
   padding-left: 8px;
 }
-.aaaa .ant-spin-nested-loading {
+.ant-list-item .ant-list-item-no-flex .ant-list-item-action {
+  margin: 0;
+}
+.hide .ant-spin-nested-loading {
   display: none;
 }
